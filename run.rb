@@ -20,7 +20,7 @@ while time_zone.nil?
   time_zone = zones[user_input][0]
 
   puts; puts "Times are adjusted to your time zone"; puts
-  puts "you selected: #{zones[user_input][1]} time (#{time_zone}:00)"
+  puts "you selected: #{zones[user_input][1]} time (#{time_zone}:00)"; puts
 end
 
 
@@ -38,8 +38,8 @@ order_computer = OrderComputer.new(pie_store, raspberry_pie)
 
 
 date_format = "%A %b %e, %I:%M %P"
-p "will ship: #{order_computer.relative_order_ship_time.strftime(date_format)}"
-p "next order deadline: #{order_computer.relative_next_order_deadline.strftime(date_format)}"
+puts "Your order will ship: #{order_computer.relative_order_ship_time.strftime(date_format)}"
+puts "The next order deadline: #{order_computer.relative_next_order_deadline.strftime(date_format)}"
 puts
 
 
