@@ -1,21 +1,21 @@
 require 'rspec'
-require_relative '../lib/merchant'
-require_relative '../lib/order_window'
-require_relative '../lib/order'
-require_relative '../lib/order_computer'
+require_relative '../../lib/order_system/merchant'
+require_relative '../../lib/order_system/order_window'
+require_relative '../../lib/order_system/order'
+require_relative '../../lib/order_system/order_computer'
 
 describe "OrderComputer" do
 
 
   # could have used many stubs and doubles, but I instead used all of these classes together to serve as integration tests
 
-  let(:merchant) { Merchant.new }
-  let(:ow1) { OrderWindow.new({start: "23/08/2013 15:00:00", close: "26/08/2013 09:59:59", ship: "27/08/2013 14:00:00"})}
-  let(:ow2) { OrderWindow.new({start: "26/08/2013 10:00:00", close: "27/08/2013 09:59:59", ship: "28/08/2013 14:00:00"})}
-  let(:ow3) { OrderWindow.new({start: "//2013, 8, 27, 10, 0, 0", close: "30/08/2013 14:59:59", ship: "02/09/2013 14:00:00"})}
+  let(:merchant) { OrderSystem::Merchant.new }
+  let(:ow1) { OrderSystem::OrderWindow.new({start: "23/08/2013 15:00:00", close: "26/08/2013 09:59:59", ship: "27/08/2013 14:00:00"})}
+  let(:ow2) { OrderSystem::OrderWindow.new({start: "26/08/2013 10:00:00", close: "27/08/2013 09:59:59", ship: "28/08/2013 14:00:00"})}
+  let(:ow3) { OrderSystem::OrderWindow.new({start: "//2013, 8, 27, 10, 0, 0", close: "30/08/2013 14:59:59", ship: "02/09/2013 14:00:00"})}
 
-  let(:order) { Order.new(merchant)}
-  let(:order_computer) { OrderComputer.new(merchant, order)}
+  let(:order) { OrderSystem::Order.new(merchant)}
+  let(:order_computer) { OrderSystem::OrderComputer.new(merchant, order)}
 
   before(:each) do
     merchant.add_order_window(ow1)

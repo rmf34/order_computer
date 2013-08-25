@@ -1,20 +1,20 @@
 require 'time'
-require_relative 'lib/order_window'
-require_relative 'lib/merchant'
-require_relative 'lib/order'
-require_relative 'lib/order_computer'
+require_relative 'lib/order_system/order_window'
+require_relative 'lib/order_system/merchant'
+require_relative 'lib/order_system/order'
+require_relative 'lib/order_system/order_computer'
 
 def process_order(time_zone)
-  ow1 = OrderWindow.new({start: "23/08/2013 15:00:00", close: "26/08/2013 09:59:59", ship: "27/08/2013 14:00:00"})
-  ow2 = OrderWindow.new({start: "26/08/2013 10:00:00", close: "27/08/2013 09:59:59", ship: "28/08/2013 14:00:00"})
-  ow3 = OrderWindow.new({start: "27/08/2013 10:00:00", close: "30/08/2013 14:59:59", ship: "02/09/2013 14:00:00"})
+  ow1 = OrderSystem::OrderWindow.new({start: "23/08/2013 15:00:00", close: "26/08/2013 09:59:59", ship: "27/08/2013 14:00:00"})
+  ow2 = OrderSystem::OrderWindow.new({start: "26/08/2013 10:00:00", close: "27/08/2013 09:59:59", ship: "28/08/2013 14:00:00"})
+  ow3 = OrderSystem::OrderWindow.new({start: "27/08/2013 10:00:00", close: "30/08/2013 14:59:59", ship: "02/09/2013 14:00:00"})
 
-  pie_store = Merchant.new
+  pie_store = OrderSystem::Merchant.new
   pie_store.add_order_window(ow1)
   pie_store.add_order_window(ow2)
   pie_store.add_order_window(ow3)
-  raspberry_pie = Order.new(pie_store, time_zone)
-  order_computer = OrderComputer.new(pie_store, raspberry_pie)
+  raspberry_pie = OrderSystem::Order.new(pie_store, time_zone)
+  order_computer = OrderSystem::OrderComputer.new(pie_store, raspberry_pie)
 
 
   date_format = "%A %b %e, %I:%M %P"
@@ -29,7 +29,7 @@ def run_program
     puts "Any character to place an order, 'quit' to exit"
     print prompt
     answer = gets.chomp.downcase
-    if answer == "quit" || answer == "exit"
+    if answer == "quit" || answer == "exit" || answer == "q" || answer == "x"
       puts "thank you for using our system"
       break
     else

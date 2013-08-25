@@ -1,9 +1,9 @@
 require 'rspec'
 require 'time'
-require_relative '../lib/order_window'
+require_relative '../../lib/order_system/order_window'
 
 describe "OrderWindow" do
-  let(:ow1) { OrderWindow.new({
+  let(:ow1) { OrderSystem::OrderWindow.new({
     start: "23/08/2013 15:00:00",
     close: "26/08/2013 09:59:59",
     ship: "27/08/2013 14:00:00"})

@@ -1,6 +1,6 @@
 require 'rspec'
 require 'time'
-require_relative '../lib/order'
+require_relative '../../lib/order_system/order'
 
 describe "Order" do
 
@@ -8,7 +8,7 @@ describe "Order" do
     @ten_am = Time.parse("25/08/2013 10:00:00")
     Time.stub(:now) { @ten_am }
     @pie_seller = double("Merchant")
-    @order = Order.new(merchant: @pie_seller)
+    @order = OrderSystem::Order.new(merchant: @pie_seller)
     @order.time_zone = -4 #eastern
   end
 
