@@ -1,6 +1,6 @@
 require 'rspec'
-require_relative '../../lib/order_system/merchant'
-require_relative '../../lib/order_system/order_window'
+require 'order_system/merchant'
+require 'order_system/order_window'
 
 
 describe "Merchant" do

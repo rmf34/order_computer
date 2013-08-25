@@ -1,12 +1,10 @@
 require 'rspec'
-require_relative '../../lib/order_system/merchant'
-require_relative '../../lib/order_system/order_window'
-require_relative '../../lib/order_system/order'
-require_relative '../../lib/order_system/order_computer'
+require 'order_system/merchant'
+require 'order_system/order_window'
+require 'order_system/order'
+require 'order_system/order_computer'
 
 describe "OrderComputer" do
-
-
   # could have used many stubs and doubles, but I instead used all of these classes together to serve as integration tests
 
   let(:merchant) { OrderSystem::Merchant.new }

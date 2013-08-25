@@ -1,6 +1,6 @@
 require 'rspec'
 require 'time'
-require_relative '../../lib/order_system/order'
+require 'order_system/order'
 
 describe "Order" do
 

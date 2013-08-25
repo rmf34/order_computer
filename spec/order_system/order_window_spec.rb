@@ -1,6 +1,6 @@
 require 'rspec'
 require 'time'
-require_relative '../../lib/order_system/order_window'
+require 'order_system/order_window'
 
 describe "OrderWindow" do
   let(:ow1) { OrderSystem::OrderWindow.new({
