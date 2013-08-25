@@ -1,0 +1,2 @@
+class EmptyOrderWindowError < StandardError
+end
